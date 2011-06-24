@@ -1,6 +1,6 @@
 <?php
 /**
- * The base cmpLauncher snippet.
+ * cmpLauncher plugin.
  *
  * @package cmplauncher
  */
@@ -31,15 +31,16 @@ switch ($modx->event->name) {
                 $constraint = $setup[0];
                 // … with this ID
                 $cid = $setup[1];
-                // and finally the action ID
+                // the action ID
                 $action = $setup[2];
-                //$autoRun = $setup[3]; @TODO if possible, directly launch the CMP
+                // if their is a fourth parameter, there will be a redirection to the action ID
+                $autoRun = $setup[3];
 
                 // grabd the action id
                 $a = $modx->getObject('modAction',$action);
                 // load the lexicon to make use of it
                 $modx->lexicon->load($a->get('lang_topics'));
-                // grab the lexicon string from modMenu
+                // grab the lexicon string from the modMenu
                 $menu = $modx->getObject('modMenu',array("action" => $action));
                 // the lexicon value supposed to be the component name
                 $cmpName = $modx->lexicon($menu->get('text'));
@@ -47,7 +48,12 @@ switch ($modx->event->name) {
                 $debugMsg = ' Constraint: (t=template/r=resource) '.$constraint.'='.$cid.';action ID :'.$action;
                 $debug = !empty($scriptProperties['debug']) ? $debugMsg : '';
 
-                if ($constraint == 'r' && $currentResId == $cid || $constraint == 't' && $currentResTpl == $cid) {
+                if (!empty($autoRun)) {
+                    // we've been asked to launch the CMP, will do (good boy!)
+                    if ($constraint == 'r' && $currentResId == $cid || $constraint == 't' && $currentResTpl == $cid) {
+                        header('location:'.$modx->getOption('server_protocol').'://'.$modx->getOption('http_host').$modx->getOption('manager_url').'index.php?a='.$action);
+                    }
+                } else if ($constraint == 'r' && $currentResId == $cid || $constraint == 't' && $currentResTpl == $cid) {
                     // seems we got a match (either resource or template id)
                     $output = '<div id="cmp-launcher">Launch CMP : <a href="index.php?a='.$action.'" class="x-btn x-btn-text bmenu x-btn-noicon">'.$cmpName.'</a>'.$debug.'</div>';
                     $modx->regClientCSS(MODX_ASSETS_URL.'components/abcbook/cmplauncher.css');
