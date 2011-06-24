@@ -1,0 +1,12 @@
+Changelog for cmpLauncher.
+
+2011/06/24 1.0.0-beta2
+========================================================
+- Added support for i18n
+- Introduced automatic redirection to the CMPs
+- Refactored the CSS that was causin issues with MODX
+  manager using a foreign language
+
+2011/06/24 1.0.0-beta1
+========================================================
+- Initial release.

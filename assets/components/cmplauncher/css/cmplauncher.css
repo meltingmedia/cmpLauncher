@@ -10,7 +10,8 @@
     position: absolute;
     z-index: 12;
     /**/
-    right: 460px;
+    right: 35px;
+    top: 45px;
     /*height: 42px;*/
 }
     #cmp-launcher a {
@@ -20,4 +21,8 @@
     }
     #cmp-launcher a:hover {
         border: 1px solid #9caf78;
+    }
+    #cmp-launcher a:focus, #cmp-launcher a:active {
+        background-color: #c1c1c1;
+        margin: 1px 0 -1px;
     }
