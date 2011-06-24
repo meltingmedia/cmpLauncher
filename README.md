@@ -4,6 +4,8 @@ cmpLauncher is an Extra for MODX Revolution CMF (http://modx.com).
 It allows you to display a link or redirect a user to a particular CMP (Component/Extra page)
 based on the template ID or the resource ID you are editing.
 
+NOTE: there is not ACL check in the plugin for now, so the links/redirections will occurs to any user.
+
 ## Usage
 
 Once installed (via the package manager) edit the plugin property named "cmp" (check http://rtfm.modx.com/display/revolution20/Properties+and+Property+Sets#PropertiesandPropertySets-AssigningPropertySetstoElements for more infos on properties)
