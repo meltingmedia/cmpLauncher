@@ -6,7 +6,7 @@ on the template ID or the resource ID you are editing.
 
 ## Usage
 
-Once installed (via the package manager) edit the plugin property named "cmp"
+Once installed (via the package manager) edit the plugin property named "cmp" (check http://rtfm.modx.com/display/revolution20/Properties+and+Property+Sets#PropertiesandPropertySets-AssigningPropertySetstoElements for more infos on properties)
 and use the following syntax:
 
 `t:id:id,r:id:id,…`
