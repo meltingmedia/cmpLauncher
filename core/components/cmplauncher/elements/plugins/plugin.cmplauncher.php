@@ -15,6 +15,10 @@ $mgrHost = $ctxMgr->getOption('http_host');
 $output = '';
 
 switch ($modx->event->name) {
+    case 'OnBeforeManagerPageInit':
+        $modx->log(modX::LOG_LEVEL_ERROR, 'before manager page init');
+        break;
+
     case 'OnDocFormPrerender':
         $resource =& $modx->event->params['resource'];
         if(!$resource) {
@@ -67,6 +71,9 @@ switch ($modx->event->name) {
             }
 
         $modx->event->output($output);
+        break;
+
+    default:
         break;
 }
 return;
