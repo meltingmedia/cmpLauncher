@@ -21,7 +21,7 @@
  */
 /**
  * Add plugins to build
- * 
+ *
  * @package cmplauncher
  * @subpackage build
  */
@@ -30,6 +30,13 @@ $events = array();
 $events['OnDocFormPrerender']= $modx->newObject('modPluginEvent');
 $events['OnDocFormPrerender']->fromArray(array(
     'event' => 'OnDocFormPrerender',
+    'priority' => 0,
+    'propertyset' => 0,
+),'',true,true);
+
+$events['OnBeforeManagerPageInit']= $modx->newObject('modPluginEvent');
+$events['OnBeforeManagerPageInit']->fromArray(array(
+    'event' => 'OnBeforeManagerPageInit',
     'priority' => 0,
     'propertyset' => 0,
 ),'',true,true);
