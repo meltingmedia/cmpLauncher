@@ -26,3 +26,15 @@
  * @subpackage lexicon
  */
 $_lang['cmplauncher.launch'] = 'Launch CMP : ';
+
+// Error msgs
+$_lang['cmplauncher.err_expected_numeric'] = 'Expected numeric values for constraint id: [[+id]] and for action id: [[+action]].';
+$_lang['cmplauncher.err_nf_action'] = 'The given action ID ([[+action]]) is not valid one.';
+$_lang['cmplauncher.err_unknow_constraint_type'] = 'Unknow constraint type: [[+type]].';
+
+// Debug msgs
+$_lang['cmplauncher.debug_auto'] = 'automaticly launch';
+$_lang['cmplauncher.debug_display'] = 'display';
+$_lang['cmplauncher.debug_msg'] = 'I\'ve been told to [[+type]] the CMP [[+cmp]] (id=[[+cmpID]]) while editing [[+case]] [[+constraintID]]';
+$_lang['cmplauncher.debug_resource'] = 'the resource having id:';
+$_lang['cmplauncher.debug_template'] = 'a resource with a template id:';

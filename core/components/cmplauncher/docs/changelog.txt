@@ -1,5 +1,9 @@
 Changelog for cmpLauncher.
 
+2011/xx/xx 2.0.0-beta1
+========================================================
+- Complete refactoring
+
 2011/06/24 1.0.0-beta2
 ========================================================
 - Added support for i18n

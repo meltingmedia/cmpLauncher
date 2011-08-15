@@ -27,16 +27,24 @@
  */
 $properties = array(
     array(
-        'name' => 'debug',
-        'desc' => 'Enable debugging',
+        'name' => 'cmp_debug',
+        'desc' => 'Enable debugging which adds a MODX log entry of the parameters instead of launching the plugin.',
         'type' => 'combo-boolean',
         'options' => '',
         'value' => '',
         //'lexicon' => 'cmplauncher:properties',
     ),
     array(
-        'name' => 'cmp',
-        'desc' => 'Set your constraints here',
+        'name' => 'cmp_display',
+        'desc' => 'Display an ExtJS widget, while editing the given resources, telling a CMP is used to manage some data.',
+        'type' => 'textfield',
+        'options' => '',
+        'value' => '',
+        //'lexicon' => 'cmplauncher:properties',
+    ),
+    array(
+        'name' => 'cmp_autolaunch',
+        'desc' => 'Auto launch a CMP for the given resources.',
         'type' => 'textfield',
         'options' => '',
         'value' => '',
