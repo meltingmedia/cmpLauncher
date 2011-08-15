@@ -42,9 +42,6 @@ class cmpLauncher {
 
             'corePath' => $corePath,
             'modelPath' => $corePath.'model/',
-            //'chunksPath' => $corePath.'elements/chunks/',
-            //'chunkSuffix' => '.chunk.tpl',
-            //'snippetsPath' => $corePath.'elements/snippets/',
             //'processorsPath' => $corePath.'processors/',
         ),$config);
 
@@ -60,7 +57,6 @@ class cmpLauncher {
      */
     public function checkAction($action) {
         if (!is_numeric($action)) return false;
-        //$this->modx->log(modX::LOG_LEVEL_ERROR, is_numeric($action) ? 'true' : 'false');
         $edit = $this->modx->getObject('modAction', array('controller' => 'resource/update'));
         if ($edit->get('id') != $action) return false;
         return true;
@@ -73,9 +69,6 @@ class cmpLauncher {
      * @return bool
      */
     public function init($scriptProperties) {
-        /*foreach ($scriptProperties as $key => $value) {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, $key.'='.$value);
-        }*/
         $display = $scriptProperties['cmp_display'];
         $autoLaunch = $scriptProperties['cmp_autolaunch'];
         if (!$display && !$autoLaunch) return false;
@@ -137,11 +130,13 @@ class cmpLauncher {
                 $this->modx->regClientStartupScript($this->config['jsUrl'].'mgr/cmplauncher.js');
                 $this->modx->regClientStartupHTMLBlock('<script type="text/javascript">
 Ext.onReady(function() {
+    cmpLauncher.config = '.$this->modx->toJSON($this->config).';
     var w = MODx.load({
         xtype : "cmplauncher-window-cmp"
         ,cmp: "'.$cmpName.'"
         ,action: '.$constraint['action'].'
         ,content: "'.$content.'"
+        ,renderTo: "modx-content"
     })
     w.show();
 });

@@ -17,8 +17,6 @@ $autoLaunch = $scriptProperties['cmp_autolaunch'];
 
 $resource = $modx->getObject('modResource', $_GET['id']);
 
-$output = '';
-
 switch ($modx->event->name) {
     case 'OnBeforeManagerPageInit':
         $auto = true;
